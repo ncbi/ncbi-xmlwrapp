@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<root xmlns:a="one">
+    <a:child xmlns:a="one" xmlns:b="two"/>
+</root>

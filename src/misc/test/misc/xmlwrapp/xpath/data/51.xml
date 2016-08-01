@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<root>
+    <child attr1="a">value</child>
+    <child>value</child>
+    <child another_attr="some">value</child>
+</root>

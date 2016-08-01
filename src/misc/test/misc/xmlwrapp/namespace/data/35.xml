@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<root xmlns="default">
+    <nested>
+        <deep xmlns:foo="http://some.name.space">
+        </deep>
+    </nested>
+</root>

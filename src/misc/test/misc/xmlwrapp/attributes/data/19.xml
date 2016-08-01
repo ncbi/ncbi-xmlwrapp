@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!DOCTYPE root PUBLIC "something" "12.dtd" [
+    <!ATTLIST root defaultAttr CDATA "defaultVal">
+]>
+<root attr1="val1" foo="fooVal" bar="barVal">
+    <child attr1="a">value1</child>
+    <child another_attr="some">value3</child>
+</root>

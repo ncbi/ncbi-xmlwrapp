@@ -1,0 +1,8 @@
+<root>
+  <carrot a="one" g="two" z="three">red</carrot>
+  <!-- comment -->
+  <banana xmlns="def" xmlns:a="one" xmlns:b="two" xmlns:d="three">yellow</banana>
+  <apple a="aaa" z="zzz"/>
+  <zorro>
+value</zorro>
+</root>

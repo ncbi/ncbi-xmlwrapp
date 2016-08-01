@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<root xmlns:foo="foo_ns">
+    <nested xmlns:bar="bar_ns">
+        <deep xmlns="default">
+        </deep>
+    </nested>
+</root>

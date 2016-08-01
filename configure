@@ -1,0 +1,3 @@
+#!/bin/sh
+srcdir=`dirname $0`
+exec $srcdir/src/build-system/configure --with-boost=/usr --without-boost-tag --srcdir=$srcdir ${1+"$@"}

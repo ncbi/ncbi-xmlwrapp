@@ -1,0 +1,15 @@
+<!ELEMENT document
+  (title*,subjectID,subjectname,prerequisite?,
+  classes,assessment,syllabus,textbooks*)>
+<!ELEMENT prerequisite (subjectID,subjectname)>
+<!ELEMENT textbooks (author,booktitle)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT subjectID (#PCDATA)>
+<!ELEMENT subjectname (#PCDATA)>
+<!ELEMENT classes (#PCDATA)>
+<!ELEMENT assessment (#PCDATA)>
+<!ATTLIST assessment assessment_type (exam | assignment) #IMPLIED>
+<!ELEMENT syllabus (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT booktitle (#PCDATA)>
+

@@ -1,0 +1,6 @@
+<root>
+    <carrot a="one" g="two" z="three">red</carrot>
+    <!-- comment -->
+  <banana>yellow</banana><apple a="aaa" z="zzz"></apple><zorro>
+value</zorro>
+</root>

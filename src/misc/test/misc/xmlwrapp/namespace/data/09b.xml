@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<root>
+    <foo>
+        <bar xmlns="http://existed.default.ns">
+            <deep>
+            </deep>
+        </bar>
+    </foo>
+    <foo xmlns:foo_prefix="http://another">
+        <foo_prefix:bar>
+        </foo_prefix:bar>
+    </foo>
+</root>

@@ -1,0 +1,81 @@
+<table border="1" width="800" cellspacing="1" cellpadding="1">
+  <tr bgcolor="#66CCFF">
+    <th>Build Run</th>
+    <th>Task type</th>
+    <th>Plane</th>
+    <th>Task Name</th>
+    <th>Role</th>
+    <th>Path</th>
+  </tr>
+  <tr>
+    <td>52757</td>
+    <td>genome_align_alt</td>
+    <td>asm2asm</td>
+    <td>Align alternate loci</td>
+    <td>alt_to_ref_align</td>
+    <td>
+      <a href="file://panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/52757/genome_align_alt.557472/out/alt_to_ref_align.seqalign.asnb" target="_blank">alt_to_ref_align.seqalign.asnb</a>
+    </td>
+  </tr>
+  <tr>
+    <td>52757</td>
+    <td>genome_align</td>
+    <td>asm2asm</td>
+    <td>Align assemblies</td>
+    <td>review</td>
+    <td>
+      <a href="file://panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/52757/genome_align.557462/out/reports/" target="_blank">4 Files</a>
+    </td>
+  </tr>
+  <tr>
+    <td>53467</td>
+    <td>gnomon_evidence_summary</td>
+    <td>gnomon-full</td>
+    <td>Summarize Gnomon Evidence</td>
+    <td>full_report</td>
+    <td>
+      <a href="file://panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/53467/gnomon_evidence_summary.564052/out/gnomon_report.txt" target="_blank">gnomon_report.txt</a>
+    </td>
+  </tr>
+  <tr>
+    <td>53467</td>
+    <td>gnomon_evidence_summary</td>
+    <td>gnomon-full</td>
+    <td>Summarize Gnomon Evidence</td>
+    <td>summary_bags</td>
+    <td>
+      <a href="file://panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/53467/gnomon_evidence_summary.564052/out/gnomon_bag_summary.txt" target="_blank">gnomon_bag_summary.txt</a>
+    </td>
+  </tr>
+  <tr>
+    <td>53467</td>
+    <td>gnomon_evidence_summary</td>
+    <td>gnomon-full</td>
+    <td>Summarize Gnomon Evidence</td>
+    <td>summary_pairs</td>
+    <td>
+      <a href="file://panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/53467/gnomon_evidence_summary.564052/out/gnomon_pair_summary.txt" target="_blank">gnomon_pair_summary.txt</a>
+    </td>
+  </tr>
+  <tr>
+    <td>53467</td>
+    <td>gnomon_evidence_summary</td>
+    <td>gnomon-full</td>
+    <td>Summarize Gnomon Evidence</td>
+    <td>summary_stats</td>
+    <td>
+      <a href="file://panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/53467/gnomon_evidence_summary.564052/out/gnomon_stats_summary.txt" target="_blank">gnomon_stats_summary.txt</a>
+    </td>
+  </tr>
+  <tr>
+    <td>53467</td>
+    <td>gnomon_evidence_summary</td>
+    <td>gnomon-full</td>
+    <td>Summarize Gnomon Evidence</td>
+    <td>summary_taxids</td>
+    <td>
+      <a href="file://panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/53467/gnomon_evidence_summary.564052/out/gnomon_taxid_summary.txt" target="_blank">gnomon_taxid_summary.txt</a>
+    </td>
+  </tr>
+</table>
+

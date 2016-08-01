@@ -1,0 +1,9 @@
+# $Id: Makefile.in 154446 2009-03-11 17:11:29Z satskyse $
+
+# Meta-makefile ("XMLWrapp" project)
+#################################
+
+LIB_PROJ = xmlwrapp
+
+srcdir = @srcdir@
+include @builddir@/Makefile.meta

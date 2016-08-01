@@ -1,0 +1,10 @@
+To build on UNIX:
+
+   ./configure
+   make
+
+
+NOTE:  MS Visual Studio and Xcode projects are not included in this pre-release.
+       They do exist however, and they will be included (along with this branch)
+       in the next public release of the NCBI C++ Toolkit.
+

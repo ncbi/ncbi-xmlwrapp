@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<root xmlns="http://bla.com">
+    <child attr1="attr_val">value</child>
+</root>

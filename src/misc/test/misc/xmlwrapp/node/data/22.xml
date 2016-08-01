@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<root attr1="value1" attr2="value2" attr3="value3">
+    <nested attr="value"/>
+</root>

@@ -1,0 +1,7 @@
+# $Id: Makefile.in 168006 2009-08-11 14:54:28Z satskyse $
+
+# Meta-makefile
+
+APP_PROJ = test_xpath
+srcdir = @srcdir@
+include @builddir@/Makefile.meta

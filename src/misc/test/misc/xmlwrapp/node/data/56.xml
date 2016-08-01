@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<root>
+    <carrot     a=  "one" g="two" z   = "three">red</carrot>
+    <!-- comment -->
+  <banana>yellow</banana><apple  z="zzz"     a = "aaa"></apple><zorro>
+value</zorro>
+</root>
+

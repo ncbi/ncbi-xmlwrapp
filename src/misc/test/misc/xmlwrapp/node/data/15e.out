@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<root xmlns:a="one">
+  <a:child xmlns:b="two" xmlns:c="three">
+    <a:nest a:attr="zzz"/>
+  </a:child>
+</root>
+

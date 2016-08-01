@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<root xmlns:p1="http://The.Namespace"
+      xmlns="default_ns">
+    <node  attr1="bla" p1:attr2="alb" />
+</root>

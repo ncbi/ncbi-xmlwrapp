@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<root xmlns:foo="foo_ns" xmlns:bar="bar_ns">
+    <nested>
+        <foo:deep xmlns="default">
+        </foo:deep>
+    </nested>
+    <nested>
+        <deep bar:attribute="some value">
+        </deep>
+    </nested>
+</root>

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<DiscrepancyCounts>
+  <Counts Severity="ERROR">
+    <Total>2</Total>
+    <Subcount Code="DISC_MISSING_AFFIL">1</Subcount>
+    <Subcount Code="SUSPECT_PRODUCT_NAMES">1</Subcount>
+  </Counts>
+  <Counts Severity="WARNING">
+    <Total>30816</Total>
+    <Subcount Code="ADJACENT_PSEUDOGENES">40</Subcount>
+    <Subcount Code="DISC_BACTERIAL_TAX_STRAIN_MISMATCH">1075</Subcount>
+    <Subcount Code="DISC_COUNT_NUCLEOTIDES">1075</Subcount>
+    <Subcount Code="DISC_FEATURE_COUNT">9990</Subcount>
+    <Subcount Code="DISC_FLATFILE_FIND_ONCALLER">13</Subcount>
+    <Subcount Code="DISC_INCONSISTENT_DBLINK">7</Subcount>
+    <Subcount Code="DISC_INCONSISTENT_MOLINFO_TECH">3</Subcount>
+    <Subcount Code="DISC_INCONSISTENT_STRUCTURED_COMMENTS">37</Subcount>
+    <Subcount Code="DISC_QUALITY_SCORES">1</Subcount>
+    <Subcount Code="DISC_SOURCE_QUALS_ASNDISC">10760</Subcount>
+    <Subcount Code="DISC_SUSPICIOUS_NOTE_TEXT">1</Subcount>
+    <Subcount Code="EXTRA_GENES">595</Subcount>
+    <Subcount Code="NO_ANNOTATION">50</Subcount>
+    <Subcount Code="ONCALLER_BIOPROJECT_ID">5666</Subcount>
+    <Subcount Code="ONCALLER_COMMENT_PRESENT">1</Subcount>
+    <Subcount Code="OVERLAPPING_CDS">43</Subcount>
+    <Subcount Code="OVERLAPPING_GENES">1199</Subcount>
+    <Subcount Code="SHORT_PROT_SEQUENCES">227</Subcount>
+    <Subcount Code="SHOW_TRANSL_EXCEPT">19</Subcount>
+    <Subcount Code="SUSPECT_PRODUCT_NAMES">14</Subcount>
+  </Counts>
+</DiscrepancyCounts>

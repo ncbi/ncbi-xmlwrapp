@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<root xmlns:MyPrefix="http://The.Namespace">
+    <DefaultNamespace>lah-de-dah</DefaultNamespace>
+    <MyPrefix:Namespaced>bah-la-dah</MyPrefix:Namespaced>
+    <NoDefinitions></NoDefinitions>
+    <ThreeDefinitions xmlns:p1="http://the.web.site"
+                      xmlns:p2="http://another.web.site"
+                      xmlns="http://nested.default.ns">
+    </ThreeDefinitions>
+</root>

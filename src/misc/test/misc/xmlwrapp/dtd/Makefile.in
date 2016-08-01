@@ -1,0 +1,7 @@
+# $Id: Makefile.in 189712 2010-04-23 16:08:53Z satskyse $
+
+# Meta-makefile
+
+APP_PROJ = test_dtd
+srcdir = @srcdir@
+include @builddir@/Makefile.meta

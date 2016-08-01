@@ -1,0 +1,18 @@
+# $Id: Makefile.top_builddir.in 157254 2009-04-14 13:55:31Z ucko $
+
+# Master (top-level) makefile for all NCBI C++ projects
+##################################################################
+
+include ./Makefile.mk
+
+
+#################################
+#  More or less standard meta-makefile
+#################################
+
+
+SUB_PROJ = misc
+srcdir = @top_srcdir@/src
+bspath = /build-system
+include ./Makefile.meta
+

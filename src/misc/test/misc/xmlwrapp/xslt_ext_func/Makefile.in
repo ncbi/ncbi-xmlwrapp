@@ -1,0 +1,7 @@
+# $Id: Makefile.in 377251 2012-10-10 15:55:27Z satskyse $
+
+# Meta-makefile
+
+APP_PROJ = test_xslt_ext_func
+srcdir = @srcdir@
+include @builddir@/Makefile.meta

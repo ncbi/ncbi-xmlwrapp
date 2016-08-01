@@ -1,0 +1,121 @@
+[Common]
+
+
+[Compiler]
+Detect64BitPortabilityProblems=FALSE
+PreprocessorDefinitions=
+WarningLevel=3
+OptimizeForProcessor=0
+StructMemberAlignment=0
+UsePrecompiledHeader=0
+CallingConvention=0
+CompileAs=0
+IgnoreStandardIncludePath=FALSE
+StringPooling=FALSE
+MinimalRebuild=
+ExceptionHandling=TRUE
+BufferSecurityCheck=TRUE
+RuntimeTypeInfo=TRUE
+DisableSpecificWarnings=
+UndefinePreprocessorDefinitions=
+AdditionalOptions=
+
+[Compiler.x64]
+Detect64BitPortabilityProblems=TRUE
+
+[Compiler.debug]
+DebugInformationFormat=3
+Optimization=0
+MinimalRebuild=TRUE
+GlobalOptimizations=FALSE
+InlineFunctionExpansion=0
+FavorSizeOrSpeed=0
+OmitFramePointers=FALSE
+# use "0" to 'purify', 'quantify', 'vtune' etc; "3" - otherwise
+BasicRuntimeChecks=3
+BrowseInformation=0
+EnableFunctionLevelLinking=FALSE
+
+[Compiler.release]
+DebugInformationFormat=0
+OptimizeForProcessor=3
+Optimization=2
+MinimalRebuild=FALSE
+GlobalOptimizations=TRUE
+InlineFunctionExpansion=2
+FavorSizeOrSpeed=1
+OmitFramePointers=TRUE
+BasicRuntimeChecks=0
+BrowseInformation=0
+EnableFunctionLevelLinking=TRUE
+
+
+[Compiler.800]
+PreprocessorDefinitions=_CRT_SECURE_NO_DEPRECATE=1;
+[Compiler.900]
+PreprocessorDefinitions=_CRT_SECURE_NO_DEPRECATE=1;
+
+[Compiler.800.release]
+PreprocessorDefinitions=_SECURE_SCL=0;_CRT_SECURE_NO_DEPRECATE=1;
+[Compiler.900.release]
+Optimization=2
+PreprocessorDefinitions=_SECURE_SCL=0;_CRT_SECURE_NO_DEPRECATE=1;
+
+
+[Linker]
+TargetMachine=1
+LinkIncremental=1
+AdditionalLibraryDirectories=
+SubSystem=1
+AdditionalOptions=
+ProgramDatabaseFile=
+ImportLibrary=
+IgnoreAllDefaultLibraries=FALSE
+IgnoreDefaultLibraryNames=FALSE
+# use "1" to 'purify', 'quantify', 'vtune' etc; "0" - otherwise
+FixedBaseAddress=0
+
+[Linker.x64]
+TargetMachine=17
+
+[Linker.debug]
+GenerateDebugInformation=TRUE
+OptimizeReferences=2
+EnableCOMDATFolding=1
+
+[Linker.release]
+GenerateDebugInformation=FALSE
+OptimizeReferences=2
+EnableCOMDATFolding=2
+
+
+
+[Librarian]
+AdditionalOptions=0
+IgnoreAllDefaultLibraries=FALSE
+IgnoreDefaultLibraryNames=FALSE
+AdditionalLibraryDirectories=
+
+
+
+[ResourceCompiler]
+AdditionalOptions=
+Culture=
+PreprocessorDefinitions=
+
+
+###############################################################################
+# Precompiled headers
+
+[UsePch]
+UsePch         = TRUE
+PchUsageDefine = NCBI_USE_PCH
+DefaultPch     = ncbi_pch.hpp
+
+internal/structure/CDTree3               = cdtree_pch.hpp
+internal/structure/PubChem/PCView/PCView = PCView_pch.hpp
+internal/structure/PubChem/assay         = assay_pch.hpp
+internal/ID/utils                        = -
+
+DoNotUsePch = test_mt test_ncbidiag_p xmlwrapp
+

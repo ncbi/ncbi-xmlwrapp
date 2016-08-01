@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<root xmlns="http://bla.org" xmlns:one="http://one.net" xmlns:two="http://two.com">
+    <child attr1="a">value</child>
+    <one:child>value</one:child>
+    <two:child another_attr="some">value</two:child>
+</root>

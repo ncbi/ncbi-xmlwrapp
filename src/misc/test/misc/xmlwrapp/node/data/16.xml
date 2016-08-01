@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<root xmlns:a="one" xmlns:b="two" xmlns="default">
+    <child xmlns:a="another" xmlns:b="two">
+        <nested xmlns:a="one" b:attr="value">
+            <a:deep xmlns:a="one" xmlns="anotherDefault"/>
+        </nested>
+    </child>
+</root>

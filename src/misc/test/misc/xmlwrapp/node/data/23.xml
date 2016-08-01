@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<foo:root xmlns:foo="foo_ns" xmlns:bar="bar_ns" xmlns="default.namespace" attr1="value1" foo:attr2="value2" bar:attr3="value3">
+    <bar:nested bar:attr="value"/>
+</foo:root>

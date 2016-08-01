@@ -1,0 +1,9 @@
+# $Id: Makefile.in 485969 2015-11-30 18:43:40Z satskyse $
+
+# Meta-makefile
+
+SUB_PROJ = attributes xslt event document node namespace xpath schema dtd libxml2_doc xslt_ext_func xslt_ext_elem
+REQUIRES = Boost.Test.Included LIBXML LIBXSLT
+
+srcdir = @srcdir@
+include @builddir@/Makefile.meta

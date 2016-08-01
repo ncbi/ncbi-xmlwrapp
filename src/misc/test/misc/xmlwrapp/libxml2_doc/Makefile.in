@@ -1,0 +1,7 @@
+# $Id: Makefile.in 334330 2011-09-06 15:22:19Z satskyse $
+
+# Meta-makefile
+
+APP_PROJ = test_libxml2_doc
+srcdir = @srcdir@
+include @builddir@/Makefile.meta

@@ -1,0 +1,4 @@
+FILE DELETED
+------------
+
+The NIH Central Email Service Virus Scanner removed the original file "xmlwrapp-and-namespaces.tar.gz->xmlwrapp-and-namespaces.tar->c++/scripts/common/new_project_msvc7.bat" because it matched the FILE FILTER= unnamed: *.bat attachment file filter.

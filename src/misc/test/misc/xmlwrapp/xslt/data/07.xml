@@ -1,0 +1,86 @@
+<build_outputs>
+  <build_output>
+    <build_run>52757</build_run>
+    <task_type>genome_align_alt</task_type>
+    <plane>asm2asm</plane>
+    <task_name>Align alternate loci</task_name>
+    <role>alt_to_ref_align</role>
+    <batch_id>757491</batch_id>
+    <out_file>
+      <path>/panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/52757/genome_align_alt.557472/out/alt_to_ref_align.seqalign.asnb</path>
+      <name>alt_to_ref_align.seqalign.asnb</name>
+    </out_file>
+  </build_output>
+  <build_output>
+    <build_run>52757</build_run>
+    <task_type>genome_align</task_type>
+    <plane>asm2asm</plane>
+    <task_name>Align assemblies</task_name>
+    <role>review</role>
+    <batch_id>764301</batch_id>
+    <out_file>
+      <path>/panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/52757/genome_align.557462/out/reports/</path>
+      <name>4 Files</name>
+    </out_file>
+  </build_output>
+  <build_output>
+    <build_run>53467</build_run>
+    <task_type>gnomon_evidence_summary</task_type>
+    <plane>gnomon-full</plane>
+    <task_name>Summarize Gnomon Evidence</task_name>
+    <role>full_report</role>
+    <batch_id>772691</batch_id>
+    <out_file>
+      <path>/panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/53467/gnomon_evidence_summary.564052/out/gnomon_report.txt</path>
+      <name>gnomon_report.txt</name>
+    </out_file>
+  </build_output>
+  <build_output>
+    <build_run>53467</build_run>
+    <task_type>gnomon_evidence_summary</task_type>
+    <plane>gnomon-full</plane>
+    <task_name>Summarize Gnomon Evidence</task_name>
+    <role>summary_bags</role>
+    <batch_id>772701</batch_id>
+    <out_file>
+      <path>/panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/53467/gnomon_evidence_summary.564052/out/gnomon_bag_summary.txt</path>
+      <name>gnomon_bag_summary.txt</name>
+    </out_file>
+  </build_output>
+  <build_output>
+    <build_run>53467</build_run>
+    <task_type>gnomon_evidence_summary</task_type>
+    <plane>gnomon-full</plane>
+    <task_name>Summarize Gnomon Evidence</task_name>
+    <role>summary_pairs</role>
+    <batch_id>772711</batch_id>
+    <out_file>
+      <path>/panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/53467/gnomon_evidence_summary.564052/out/gnomon_pair_summary.txt</path>
+      <name>gnomon_pair_summary.txt</name>
+    </out_file>
+  </build_output>
+  <build_output>
+    <build_run>53467</build_run>
+    <task_type>gnomon_evidence_summary</task_type>
+    <plane>gnomon-full</plane>
+    <task_name>Summarize Gnomon Evidence</task_name>
+    <role>summary_stats</role>
+    <batch_id>772721</batch_id>
+    <out_file>
+      <path>/panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/53467/gnomon_evidence_summary.564052/out/gnomon_stats_summary.txt</path>
+      <name>gnomon_stats_summary.txt</name>
+    </out_file>
+  </build_output>
+  <build_output>
+    <build_run>53467</build_run>
+    <task_type>gnomon_evidence_summary</task_type>
+    <plane>gnomon-full</plane>
+    <task_name>Summarize Gnomon Evidence</task_name>
+    <role>summary_taxids</role>
+    <batch_id>772731</batch_id>
+    <out_file>
+      <path>/panfs/pan1/gpipe/prod/data01/Sus_scrofa/3.1.12644/53467/gnomon_evidence_summary.564052/out/gnomon_taxid_summary.txt</path>
+      <name>gnomon_taxid_summary.txt</name>
+    </out_file>
+  </build_output>
+</build_outputs>

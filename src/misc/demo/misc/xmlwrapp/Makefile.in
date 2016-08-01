@@ -1,0 +1,10 @@
+# $Id: Makefile.in 208584 2010-10-19 16:06:55Z satskyse $
+
+# Meta-makefile
+
+APP_PROJ = tree_parsing event_parsing xml_generation xslt_transformation xml_schema dtd_validation xpath_run find_attribute
+
+REQUIRES = LIBXML LIBXSLT
+
+srcdir = @srcdir@
+include @builddir@/Makefile.meta

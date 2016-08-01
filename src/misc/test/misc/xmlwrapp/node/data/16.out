@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<root xmlns="default">
+  <child xmlns:b="two">
+    <nested b:attr="value">
+      <a:deep xmlns:a="one"/>
+    </nested>
+  </child>
+</root>
+

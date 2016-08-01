@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<root xmlns:foo="foo_ns" xmlns:bar="bar_ns">
+    <nested bar:attr="value">
+    </nested>
+</root>

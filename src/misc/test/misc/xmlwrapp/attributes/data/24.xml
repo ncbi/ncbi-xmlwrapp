@@ -1,0 +1,4 @@
+<root xmlns:some_ns="http://the.com" attr1="val1" foo="fooVal" some_ns:bar="barVal">
+    <child attr1="a">value1</child>
+    <child another_attr="some">value3</child>
+</root>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<root xmlns="http://The.Default.Namespace"
+      xmlns:MyPrefix="http://The.Namespace">
+    <DefaultNamespace>lah-de-dah</DefaultNamespace>
+    <MyPrefix:Namespaced>bah-la-dah</MyPrefix:Namespaced>
+    <NoDefinitions></NoDefinitions>
+</root>

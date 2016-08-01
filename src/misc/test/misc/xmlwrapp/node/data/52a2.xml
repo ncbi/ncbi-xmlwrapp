@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<root>
+    <child2 xmlns:b="http://b.org" b:attr2="val2">
+        <b:subchild2 b:attr2="val2">content2</b:subchild2>
+    </child2>
+</root>
+

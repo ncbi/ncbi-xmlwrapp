@@ -1,0 +1,14 @@
+#################################
+# $Id: Makefile.in 157825 2009-04-20 15:49:57Z satskyse $
+# Author:  Vladimir Ivanov (ivanov@ncbi.nlm.nih.gov)
+#################################
+
+# Meta-makefile for misc code
+#################################
+
+# SUB_PROJ            = xmlwrapp demo test
+SUB_PROJ            = xmlwrapp demo
+
+
+srcdir = @srcdir@
+include @builddir@/Makefile.meta
