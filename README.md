@@ -7,7 +7,7 @@ March 11, 2009. Since then we extended it with numerous new features:
 * XPath support
 * Extended error handling
 * XSLT extension functions
-** HTTPS support (sorry, not in this release because of packaging issues)
+  * HTTPS support (sorry, not in this release because of packaging issues)
 * Elements support
 * Canonicalization of the documents
 * ...and more, including numerous bugfixes.
