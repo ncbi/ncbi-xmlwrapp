@@ -28,3 +28,5 @@ into the 2.3.0 release:
 * https://www.ncbi.nlm.nih.gov/viewvc/v1/trunk/c%2B%2B/include/misc/xmlwrapp/?view=log&pathrev=70748
 * https://www.ncbi.nlm.nih.gov/viewvc/v1/trunk/c%2B%2B/src/misc/xmlwrapp/?view=log&pathrev=70748
 
+Some documentation is valaible in the C++ Toolkit Book here:
+* https://ncbi.github.io/cxx-toolkit/pages/ch_xmlwrapp
