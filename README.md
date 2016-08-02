@@ -25,6 +25,6 @@ incompatible with the `xmlwrapp-0.6.0` and its other successors.
 Here you can see the full list of changes (sans demo and test code) that went
 into the 2.3.0 release:
 
-* [https://www.ncbi.nlm.nih.gov/viewvc/v1/trunk/c%2B%2B/include/misc/xmlwrapp/?view=log&pathrev=70748]
-* [https://www.ncbi.nlm.nih.gov/viewvc/v1/trunk/c%2B%2B/src/misc/xmlwrapp/?view=log&pathrev=70748]
+* https://www.ncbi.nlm.nih.gov/viewvc/v1/trunk/c%2B%2B/include/misc/xmlwrapp/?view=log&pathrev=70748
+* https://www.ncbi.nlm.nih.gov/viewvc/v1/trunk/c%2B%2B/src/misc/xmlwrapp/?view=log&pathrev=70748
 
