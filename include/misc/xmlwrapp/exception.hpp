@@ -31,7 +31,7 @@
  */
 
 /*
- * $Id: exception.hpp 189865 2010-04-26 15:28:41Z satskyse $
+ * $Id: exception.hpp 543412 2017-08-09 18:22:55Z satskyse $
  * NOTE: This file was modified from its original version 0.7.0
  *       to fit the NCBI C++ Toolkit build framework and
  *       API and functionality requirements.
@@ -63,8 +63,20 @@ namespace xml
     class exception : public std::runtime_error
     {
     public:
-        explicit exception(const std::string& what) : std::runtime_error(what)
+        explicit exception(const std::string& msg) : std::runtime_error(msg)
         {}
+
+        exception (exception && other) :
+            std::runtime_error(std::move(other))
+        {}
+
+        exception &  operator= (exception && other)
+        {
+            if (this != &other) {
+                std::runtime_error::operator=(std::move(other));
+            }
+            return *this;
+        }
     };
 
 } // namespace xml

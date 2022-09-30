@@ -31,7 +31,7 @@
  */
 
 /*
- * $Id: attributes.cpp 482375 2015-10-22 16:10:24Z satskyse $
+ * $Id: attributes.cpp 543412 2017-08-09 18:22:55Z satskyse $
  * NOTE: This file was modified from its original version 0.6.0
  *       to fit the NCBI C++ Toolkit build framework and
  *       API and functionality requirements.
@@ -117,7 +117,24 @@ void xml::attributes::swap (attributes &other) {
 }
 //####################################################################
 xml::attributes::~attributes (void) {
-    delete pimpl_;
+    if (pimpl_ != NULL)
+        delete pimpl_;
+}
+//####################################################################
+xml::attributes::attributes (attributes &&other) :
+    pimpl_(other.pimpl_)
+{
+    other.pimpl_ = NULL;
+}
+//####################################################################
+xml::attributes &  xml::attributes::operator= (attributes &&other) {
+    if (this != &other) {
+        if (pimpl_ != NULL)
+            delete pimpl_;
+        pimpl_ = other.pimpl_;
+        other.pimpl_ = NULL;
+    }
+    return *this;
 }
 //####################################################################
 void* xml::attributes::get_data (void) {

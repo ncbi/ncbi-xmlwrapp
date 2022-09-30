@@ -1,4 +1,4 @@
-/*  $Id: libxml2_xmlwrapp.hpp 377251 2012-10-10 15:55:27Z satskyse $
+/*  $Id: libxml2_xmlwrapp.hpp 543412 2017-08-09 18:22:55Z satskyse $
  * ===========================================================================
  *
  *                            PUBLIC DOMAIN NOTICE
@@ -180,6 +180,18 @@ class libxml2_document : public document
                          error_messages *  messages,
                          warnings_as_errors_type  how =
                                              type_warnings_not_errors);
+
+        /**
+         * Moving constructor.
+         * @param other The other libxml2 document.
+        **/
+        libxml2_document (libxml2_document && other);
+
+        /**
+         * Moving assignment.
+         * @param other The other libxml2 document.
+        **/
+        libxml2_document &  operator= (libxml2_document && other);
 
         /**
          * Provides a raw libxml2 document.

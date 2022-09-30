@@ -1,4 +1,4 @@
-/*  $Id: extension_element.cpp 388089 2013-02-05 14:37:34Z satskyse $
+/*  $Id: extension_element.cpp 622181 2020-12-21 18:27:50Z satskyse $
  * ===========================================================================
  *
  *                            PUBLIC DOMAIN NOTICE
@@ -98,7 +98,8 @@ namespace xslt {
 
     extension_element::~extension_element ()
     {
-        delete pimpl_;
+        if (pimpl_ != NULL)
+            delete pimpl_;
     }
 
     extension_element::extension_element (const extension_element &  other) :
@@ -115,6 +116,24 @@ namespace xslt {
         return *this;
     }
 
+    extension_element::extension_element (extension_element &&  other) :
+        pimpl_(other.pimpl_)
+    {
+        other.pimpl_ = NULL;
+    }
+
+    extension_element &
+    extension_element::operator= (extension_element &&  other)
+    {
+        if (this != &other) {
+            if (pimpl_ != NULL)
+                delete pimpl_;
+            pimpl_ = other.pimpl_;
+            other.pimpl_ = NULL;
+        }
+        return *this;
+    }
+
     void extension_element::report_error (const char *  error)
     {
         if (pimpl_->xslt_ctxt == NULL)
@@ -125,7 +144,7 @@ namespace xslt {
                                   "when there is no XSLT instruction node.");
 
         xsltTransformError(pimpl_->xslt_ctxt, pimpl_->xslt_ctxt->style,
-                           pimpl_->instruction_node, error);
+                           pimpl_->instruction_node, "%s", error);
     }
 
     xpath_object extension_element::evaluate (const char *  xpath_expression,

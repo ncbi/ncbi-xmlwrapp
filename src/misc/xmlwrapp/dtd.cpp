@@ -28,7 +28,7 @@
  */
 
 /*
- * $Id: dtd.cpp 487761 2015-12-21 19:43:34Z satskyse $
+ * $Id: dtd.cpp 543412 2017-08-09 18:22:55Z satskyse $
  */
 
 /** @file
@@ -36,7 +36,6 @@
 **/
 
 // xmlwrapp includes
-#include "allow_auto_ptr.hpp"
 #include <misc/xmlwrapp/dtd.hpp>
 #include <misc/xmlwrapp/document.hpp>
 #include <misc/xmlwrapp/exception.hpp>
@@ -90,12 +89,13 @@ dtd::dtd (const char* filename, error_messages* messages,
 {
     if (!filename)
         throw xml::exception("invalid file name");
-    std::auto_ptr<dtd_impl> ap(pimpl_ = new dtd_impl);
+    std::unique_ptr<dtd_impl> ap(pimpl_ = new dtd_impl);
 
     if (messages)
         messages->get_messages().clear();
 
     pimpl_->dtd_ = xmlParseDTD(0, reinterpret_cast<const xmlChar*>(filename));
+
     if (pimpl_->dtd_ == NULL) {
         // It is a common case that the file does not exist or cannot be
         // opened. libxml2 does not recognise it so make a test here to
@@ -121,8 +121,8 @@ bool dtd::validate (const document& doc, error_messages* messages,
     if (!pimpl_->dtd_)
         throw xml::exception("dtd has not been loaded");
 
-    error_messages *    temp(messages);
-    std::auto_ptr<error_messages>   msgs;
+    error_messages *                    temp(messages);
+    std::unique_ptr<error_messages>     msgs;
     if (!messages)
         msgs.reset(temp = new error_messages);
 
@@ -149,9 +149,31 @@ bool dtd::validate (const document& doc, error_messages* messages,
 }
 
 dtd::~dtd() {
-    if (pimpl_->owned_ && pimpl_->dtd_)
-        xmlFreeDtd(pimpl_->dtd_);
-    delete pimpl_;
+    if (pimpl_ != NULL) {
+        if (pimpl_->owned_ && pimpl_->dtd_)
+            xmlFreeDtd(pimpl_->dtd_);
+        delete pimpl_;
+    }
+}
+
+dtd::dtd(dtd &&other) :
+    pimpl_(other.pimpl_)
+{
+    other.pimpl_ = NULL;
+}
+
+dtd& dtd::operator= (dtd &&other)
+{
+    if (this != &other) {
+        if (pimpl_ != NULL) {
+            if (pimpl_->owned_ && pimpl_->dtd_)
+                xmlFreeDtd(pimpl_->dtd_);
+            delete pimpl_;
+        }
+        pimpl_ = other.pimpl_;
+        other.pimpl_ = NULL;
+    }
+    return *this;
 }
 
 void dtd::set_dtd_data (void *data) {

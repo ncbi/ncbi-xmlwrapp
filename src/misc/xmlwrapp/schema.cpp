@@ -28,7 +28,7 @@
  */
 
 /*
- * $Id: schema.cpp 487761 2015-12-21 19:43:34Z satskyse $
+ * $Id: schema.cpp 543412 2017-08-09 18:22:55Z satskyse $
  */
 
 /** @file
@@ -36,7 +36,6 @@
 **/
 
 // xmlwrapp includes
-#include "allow_auto_ptr.hpp"
 #include <misc/xmlwrapp/schema.hpp>
 #include <misc/xmlwrapp/document.hpp>
 #include <misc/xmlwrapp/exception.hpp>
@@ -75,9 +74,9 @@ schema::schema (const char* filename,
     if (!filename)
         throw xml::exception("invalid file name");
 
-    std::auto_ptr<schema_impl> ap(pimpl_ = new schema_impl);
-    error_messages *    temp(messages);
-    std::auto_ptr<error_messages>   msgs;
+    std::unique_ptr<schema_impl>        ap(pimpl_ = new schema_impl);
+    error_messages *                    temp(messages);
+    std::unique_ptr<error_messages>     msgs;
     if (!messages)
         msgs.reset(temp = new error_messages);
 
@@ -91,9 +90,9 @@ schema::schema (const char* data, size_type size,
     if (!data)
         throw xml::exception("invalid data pointer");
 
-    std::auto_ptr<schema_impl> ap(pimpl_ = new schema_impl);
-    error_messages *    temp(messages);
-    std::auto_ptr<error_messages>   msgs;
+    std::unique_ptr<schema_impl>        ap(pimpl_ = new schema_impl);
+    error_messages *                    temp(messages);
+    std::unique_ptr<error_messages>     msgs;
     if (!messages)
         msgs.reset(temp = new error_messages);
 
@@ -110,8 +109,8 @@ bool schema::validate (const document& doc,
         throw std::bad_alloc();
     }
 
-    error_messages* temp(messages);
-    std::auto_ptr<error_messages>   msgs;
+    error_messages *                    temp(messages);
+    std::unique_ptr<error_messages>     msgs;
     if (!messages)
         msgs.reset(temp = new error_messages);
     else
@@ -163,6 +162,7 @@ void schema::construct (const char* file_or_data, size_type size,
     }
 
     messages->get_messages().clear();
+
     xmlSchemaSetParserErrors(ctxt, cb_schema_error,
                                    cb_schema_warning,
                                    messages);
@@ -183,9 +183,33 @@ void schema::construct (const char* file_or_data, size_type size,
 }
 
 schema::~schema() {
-    if (pimpl_->schema_)
-        xmlSchemaFree(pimpl_->schema_);
-    delete pimpl_;
+    if (pimpl_ != NULL) {
+        if (pimpl_->schema_ != NULL) {
+            xmlSchemaFree(pimpl_->schema_);
+            delete pimpl_;
+        }
+    }
+}
+
+schema::schema(schema && other) :
+    pimpl_(other.pimpl_)
+{
+    other.pimpl_ = NULL;
+}
+
+schema & schema::operator=(schema && other)
+{
+    if (this != &other) {
+        if (pimpl_ != NULL) {
+            if (pimpl_->schema_ != NULL) {
+                xmlSchemaFree(pimpl_->schema_);
+                delete pimpl_;
+            }
+        }
+        pimpl_ = other.pimpl_;
+        other.pimpl_ = NULL;
+    }
+    return *this;
 }
 
 
@@ -230,4 +254,3 @@ namespace {
         register_error_helper(error_message::type_warning, v, temporary);
     }
 }
-

@@ -31,7 +31,7 @@
  */
 
 /*
- * $Id: stylesheet.hpp 487956 2015-12-23 14:30:44Z satskyse $
+ * $Id: stylesheet.hpp 543412 2017-08-09 18:22:55Z satskyse $
  * NOTE: This file was modified from its original version 0.6.0
  *       to fit the NCBI C++ Toolkit build framework and
  *       API and functionality requirements.
@@ -171,6 +171,18 @@ public:
     //####################################################################
     virtual ~stylesheet (void);
 
+    /**
+     * Moving constructor.
+     * @param other The other stylesheet.
+    **/
+    stylesheet (stylesheet &&  other);
+
+    /**
+     * Moving assignment.
+     * @param other The other stylesheet.
+    **/
+    stylesheet & operator= (stylesheet &&  other);
+
     //####################################################################
     /**
      * Apply this stylesheet to the given XML document. The results document
@@ -233,6 +245,7 @@ private:
     impl::stylesheet_impl *pimpl_;
 
     void attach_refcount (void);
+    void destroy (void);
 
     // an xslt::stylesheet cannot yet be copied or assigned to.
     stylesheet (const stylesheet&);

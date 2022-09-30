@@ -28,7 +28,7 @@
  */
 
 /*
- * $Id: namespace.cpp 208695 2010-10-20 13:56:22Z satskyse $
+ * $Id: namespace.cpp 543412 2017-08-09 18:22:55Z satskyse $
  */
 
 /** @file
@@ -69,7 +69,26 @@ xml::ns::ns (const char *  prefix, const char *  uri) : prefix_(prefix ? prefix 
 xml::ns::ns (void * rawLibXML2Namespace) : prefix_(), uri_(),
                                            unsafe_ns_(rawLibXML2Namespace),
                                            safety_(ns::type_unsafe_ns)
+{}
+
+
+xml::ns::ns (ns && other) :
+    prefix_(std::move(other.prefix_)),
+    uri_(std::move(other.uri_)),
+    unsafe_ns_(other.unsafe_ns_),
+    safety_(other.safety_)
+{}
+
+
+xml::ns & xml::ns::operator= (ns && other)
 {
+    if (this != &other) {
+        prefix_ = std::move(other.prefix_);
+        uri_ = std::move(other.uri_);
+        unsafe_ns_ = other.unsafe_ns_;
+        safety_ = other.safety_;
+    }
+    return *this;
 }
 
 

@@ -31,7 +31,7 @@
  */
 
 /*
- * $Id: xml_init.cpp 481383 2015-10-09 13:38:47Z satskyse $
+ * $Id: xml_init.cpp 503864 2016-06-08 18:03:19Z satskyse $
  * NOTE: This file was modified from its original version 0.6.0
  *       to fit the NCBI C++ Toolkit build framework and
  *       API and functionality requirements.

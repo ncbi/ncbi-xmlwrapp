@@ -1,4 +1,4 @@
-/*  $Id: libxml2_xmlwrapp.cpp 339561 2011-09-29 18:02:45Z satskyse $
+/*  $Id: libxml2_xmlwrapp.cpp 543412 2017-08-09 18:22:55Z satskyse $
  * ===========================================================================
  *
  *                            PUBLIC DOMAIN NOTICE
@@ -109,6 +109,20 @@ libxml2_document::libxml2_document(std::istream &    stream,
     set_ownership(type_own);
 }
 
+
+libxml2_document::libxml2_document(libxml2_document && other) :
+    document(std::move(other))
+{}
+
+
+libxml2_document &
+libxml2_document::operator=(libxml2_document && other)
+{
+    if (this != &other) {
+        document::operator=(std::move(other));
+    }
+    return *this;
+}
 
 xmlDoc *  libxml2_document::get_raw_doc(void)
 {

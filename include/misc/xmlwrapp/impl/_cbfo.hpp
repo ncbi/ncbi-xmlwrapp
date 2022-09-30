@@ -31,7 +31,7 @@
  */
 
 /*
- * $Id: _cbfo.hpp 154473 2009-03-11 19:10:20Z satskyse $ 
+ * $Id: _cbfo.hpp 617919 2020-10-08 11:57:15Z gouriano $ 
  * NOTE: This file was modified from its original version 0.6.0
  *       to fit the NCBI C++ Toolkit build framework and
  *       API and functionality requirements. 
@@ -48,7 +48,8 @@ class node;
 
 namespace impl {
 
-    struct cbfo_node_compare : public std::binary_function<xml::node, xml::node, bool> {
+    struct cbfo_node_compare
+	{
 	virtual ~cbfo_node_compare (void) { }
 	virtual bool operator() (const xml::node &lhs, const xml::node &rhs) = 0;
     };

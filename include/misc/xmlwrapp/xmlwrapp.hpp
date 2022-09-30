@@ -31,7 +31,7 @@
  */
 
 /*
- * $Id: xmlwrapp.hpp 485969 2015-11-30 18:43:40Z satskyse $
+ * $Id: xmlwrapp.hpp 505847 2016-06-29 15:39:37Z serovav $
  * NOTE: This file was modified from its original version 0.6.0
  *       to fit the NCBI C++ Toolkit build framework and
  *       API and functionality requirements.
@@ -54,7 +54,7 @@
  *    - searching for an attribute of the node
  *
  * For more details see the 'Thread Safety' section in the C++ Toolkit Book at:
- * http://www.ncbi.nlm.nih.gov/toolkit/doc/book/ch_xmlwrapp/
+ * http://ncbi.github.io/cxx-toolkit/pages/ch_xmlwrapp
  */
 
 
