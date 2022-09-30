@@ -1,4 +1,4 @@
-/*  $Id: xslt_exception.hpp 377251 2012-10-10 15:55:27Z satskyse $
+/*  $Id: xslt_exception.hpp 543412 2017-08-09 18:22:55Z satskyse $
  * ===========================================================================
  *
  *                            PUBLIC DOMAIN NOTICE
@@ -52,8 +52,20 @@ namespace xslt
     class exception : public xml::exception
     {
     public:
-        explicit exception(const std::string& what) : xml::exception(what)
+        explicit exception(const std::string& msg) : xml::exception(msg)
         {}
+
+        exception (exception && other) :
+            xml::exception(std::move(other))
+        {}
+
+        exception &  operator= (exception && other)
+        {
+            if (this != &other) {
+                xml::exception::operator=(std::move(other));
+            }
+            return *this;
+        }
     };
 
 } // namespace xslt

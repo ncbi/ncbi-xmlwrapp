@@ -31,7 +31,7 @@
  */
 
 /*
- * $Id: document.hpp 485969 2015-11-30 18:43:40Z satskyse $
+ * $Id: document.hpp 543412 2017-08-09 18:22:55Z satskyse $
  * NOTE: This file was modified from its original version 0.6.0
  *       to fit the NCBI C++ Toolkit build framework and
  *       API and functionality requirements.
@@ -753,6 +753,18 @@ public:
     **/
     //####################################################################
     document& operator= (const document &other);
+
+    /**
+     * Moving constructor.
+     * @param other The other document.
+    **/
+    document (document &&other);
+
+    /**
+     * Moving assignment.
+     * @param other The other document.
+    **/
+    document& operator= (document &&other);
 
 private:
     impl::doc_impl *pimpl_;

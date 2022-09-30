@@ -1,4 +1,4 @@
-/*  $Id: schema.hpp 414573 2013-09-25 14:34:37Z satskyse $
+/*  $Id: schema.hpp 543412 2017-08-09 18:22:55Z satskyse $
  * ===========================================================================
  *
  *                            PUBLIC DOMAIN NOTICE
@@ -125,6 +125,18 @@ public:
      * @author Sergey Satskiy, NCBI
     **/
     virtual ~schema();
+
+    /**
+     * Moving constructor.
+     * @param other The other schema.
+    **/
+    schema (schema &&other);
+
+    /**
+     * Moving assignment.
+     * @param other The other schema.
+    **/
+    schema& operator= (schema &&other);
 
 private:
     impl::schema_impl *pimpl_;

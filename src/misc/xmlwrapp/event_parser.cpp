@@ -31,7 +31,7 @@
  */
 
 /*
- * $Id: event_parser.cpp 487761 2015-12-21 19:43:34Z satskyse $
+ * $Id: event_parser.cpp 543412 2017-08-09 18:22:55Z satskyse $
  * NOTE: This file was modified from its original version 0.6.0
  *       to fit the NCBI C++ Toolkit build framework and
  *       API and functionality requirements.
@@ -48,7 +48,6 @@
 #endif
 
 // xmlwrapp includes
-#include "allow_auto_ptr.hpp"
 #include <misc/xmlwrapp/event_parser.hpp>
 #include <misc/xmlwrapp/node.hpp>
 #include <misc/xmlwrapp/exception.hpp>
@@ -284,8 +283,27 @@ xml::event_parser::event_parser (sax_handlers_mask mask) : parse_finished_(true)
 }
 //####################################################################
 xml::event_parser::~event_parser (void) {
-    delete pimpl_;
+    if (pimpl_ != NULL)
+        delete pimpl_;
 }
+
+xml::event_parser::event_parser (event_parser &&other) :
+    pimpl_(other.pimpl_)
+{
+    other.pimpl_ = NULL;
+}
+
+xml::event_parser & xml::event_parser::operator= (event_parser &&other)
+{
+    if (this != &other) {
+        if (pimpl_ != NULL)
+            delete pimpl_;
+        pimpl_ = other.pimpl_;
+        other.pimpl_ = NULL;
+    }
+    return *this;
+}
+
 //####################################################################
 bool event_parser::parse_file (const char *filename, error_messages* messages,
                                warnings_as_errors_type how) {
@@ -318,9 +336,9 @@ bool event_parser::parse_file (const char *filename, error_messages* messages,
 //####################################################################
 bool event_parser::parse_stream (std::istream &stream, error_messages* messages,
                                  warnings_as_errors_type how) {
-    char buffer[const_buffer_size];
-    error_messages* temp(messages);
-    std::auto_ptr<error_messages>   msgs;
+    char                                buffer[const_buffer_size];
+    error_messages *                    temp(messages);
+    std::unique_ptr<error_messages>     msgs;
     if (!messages)
         msgs.reset(temp = new error_messages);
 
@@ -330,7 +348,8 @@ bool event_parser::parse_stream (std::istream &stream, error_messages* messages,
     temp->get_messages().clear();
     pimpl_->parser_status_ = true;
 
-    if (stream && (stream.eof() || stream.peek() == std::istream::traits_type::eof()))
+    if (stream && (stream.eof() ||
+                   stream.peek() == std::istream::traits_type::eof()))
     {
         pimpl_->parser_status_ = false;
         temp->get_messages().push_back(error_message("empty xml document",
@@ -360,14 +379,15 @@ bool event_parser::parse_stream (std::istream &stream, error_messages* messages,
 bool event_parser::parse_chunk (const char *chunk, size_type length,
                                 error_messages* messages,
                                 warnings_as_errors_type how) {
-    error_messages* temp(messages);
-    std::auto_ptr<error_messages>   msgs;
+    error_messages *                    temp(messages);
+    std::unique_ptr<error_messages>     msgs;
     if (!messages)
         msgs.reset(temp = new error_messages);
-    else
-        if (parse_finished_)
-            // This is first call of the parse_chunk() after parse_finished()
-            messages->get_messages().clear();
+
+    if (parse_finished_) {
+        // This is first call of the parse_chunk() after parse_finished()
+        temp->get_messages().clear();
+    }
 
     parse_finished_ = false;
     pimpl_->errors_ = temp;
@@ -378,13 +398,15 @@ bool event_parser::parse_chunk (const char *chunk, size_type length,
     else
     {
         // Not first call, check that the callbacks are enabled
-        if (pimpl_->parser_context_->disableSAX != 0)
+        if (pimpl_->parser_context_->disableSAX != 0) {
             throw xml::exception("parse_finish(...) was not called after "
                                  "an error occured or the user "
                                  "stopped the parser");
-        if (pimpl_->parser_context_->instate == XML_PARSER_EOF)
+        }
+        if (pimpl_->parser_context_->instate == XML_PARSER_EOF) {
             throw xml::exception("parse_finish(...) was not called "
                                  "after the parser has finished");
+        }
     }
 
     xmlParseChunk(pimpl_->parser_context_, chunk,
@@ -402,6 +424,10 @@ bool event_parser::parse_finish (error_messages* messages,
     xmlParseChunk(pimpl_->parser_context_, 0, 0, 1);
 
     parse_finished_ = true;
+    error_messages *                    temp(messages);
+    std::unique_ptr<error_messages>     msgs;
+    if (!messages)
+        msgs.reset(temp = new error_messages);
 
     // There was an error while parsing or the user interrupted parsing
     bool        ret_val = true;
@@ -409,9 +435,8 @@ bool event_parser::parse_finish (error_messages* messages,
         ret_val= false;
     else
     {
-        if (messages)
-            if (is_failure(messages, how))
-                ret_val= false;
+        if (is_failure(temp, how))
+            ret_val= false;
     }
 
     // The parser context is not needed any more

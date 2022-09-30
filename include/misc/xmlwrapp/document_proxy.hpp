@@ -1,4 +1,4 @@
-/*  $Id: document_proxy.hpp 418904 2013-11-20 15:32:18Z satskyse $
+/*  $Id: document_proxy.hpp 601610 2020-02-11 15:01:11Z ucko $
  * ===========================================================================
  *
  *                            PUBLIC DOMAIN NOTICE
@@ -58,11 +58,14 @@ class document_proxy
 public:
     ~document_proxy ();
 
+    document_proxy (document_proxy &&  other);
+    document_proxy &  operator= (document_proxy &&  other);
+
 // Some compilers (GCC 4.4.2 and up) are clever enough to avoid using the
 // copy constructor, so for those compilers it is private.
 // MSVC behaves different depending on a case. E.g. in case of the '?'
 // operator MSVC needs a copy constructor.
-#if defined(NCBI_COMPILER_GCC)  &&  NCBI_COMPILER_VERSION >= 442
+#if defined(NCBI_COMPILER_GCC)  ||  defined(NCBI_COMPILER_ANY_CLANG)
 private:
 #else
 public:

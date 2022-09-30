@@ -31,7 +31,7 @@
  */
 
 /*
- * $Id: node_manip.cpp 430203 2014-03-24 18:01:17Z satskyse $
+ * $Id: node_manip.cpp 656203 2022-09-16 13:18:35Z satskyse $
  * NOTE: This file was modified from its original version 0.6.0
  *       to fit the NCBI C++ Toolkit build framework and
  *       API and functionality requirements.
@@ -76,15 +76,27 @@ xmlNodePtr xml::impl::node_replace (xmlNodePtr old_node, xmlNodePtr new_node) {
     xmlNodePtr copied_node =  xmlCopyNode(new_node, 1);
     if (!copied_node) throw std::bad_alloc();
 
+    // Note: the libxml2 xmlReplaceNode(...) does not tell if it completed successfully.
+    //       The hack is to set a pointer to a document to a certain value. If the pointer
+    //       is changed then the replacement succseeded. Below a temporary empty document
+    //       is created for that purpose.
+    xmlDocPtr temp_to_test_replace_success = xmlNewDoc((const xmlChar *)("1.0"));
+    if (!temp_to_test_replace_success) {
+        xmlFreeNode(copied_node);
+        throw std::bad_alloc();
+    }
+
     // hack to see if xmlReplaceNode was successful
-    copied_node->doc = reinterpret_cast<xmlDocPtr>(old_node);
+    copied_node->doc = temp_to_test_replace_success;
     xmlReplaceNode(old_node, copied_node);
 
-    if (copied_node->doc == reinterpret_cast<xmlDocPtr>(old_node)) {
+    if (copied_node->doc == temp_to_test_replace_success) {
+        xmlFreeDoc(temp_to_test_replace_success);
         xmlFreeNode(copied_node);
         throw xml::exception("failed to replace xml::node; xmlReplaceNode() failed");
     }
 
+    xmlFreeDoc(temp_to_test_replace_success);
     xmlFreeNode(old_node);
 
     if (!copied_node->ns) copied_node->ns = xmlSearchNs(NULL, copied_node->parent, NULL);

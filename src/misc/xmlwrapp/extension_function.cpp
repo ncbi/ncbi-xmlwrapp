@@ -1,4 +1,4 @@
-/*  $Id: extension_function.cpp 390870 2013-03-04 14:33:50Z satskyse $
+/*  $Id: extension_function.cpp 622181 2020-12-21 18:27:50Z satskyse $
  * ===========================================================================
  *
  *                            PUBLIC DOMAIN NOTICE
@@ -126,7 +126,8 @@ namespace xslt {
 
     extension_function::~extension_function ()
     {
-        delete pimpl_;
+        if (pimpl_ != NULL)
+            delete pimpl_;
     }
 
     extension_function::extension_function (const extension_function &  other) :
@@ -140,6 +141,24 @@ namespace xslt {
     extension_function::operator= (const extension_function &  other)
     {
         pimpl_->xpath_parser_ctxt = other.pimpl_->xpath_parser_ctxt;
+        return *this;
+    }
+
+    extension_function::extension_function (extension_function &&  other) :
+        pimpl_(other.pimpl_)
+    {
+        other.pimpl_ = NULL;
+    }
+
+    extension_function &
+    extension_function::operator= (extension_function &&  other)
+    {
+        if (this != &other) {
+            if (pimpl_ != NULL)
+                delete pimpl_;
+            pimpl_ = other.pimpl_;
+            other.pimpl_ = NULL;
+        }
         return *this;
     }
 
@@ -171,7 +190,7 @@ namespace xslt {
 
         xsltTransformContextPtr     xslt_ctxt =
                         xsltXPathGetTransformContext(pimpl_->xpath_parser_ctxt);
-        xsltTransformError(xslt_ctxt, xslt_ctxt->style, NULL, error);
+        xsltTransformError(xslt_ctxt, xslt_ctxt->style, NULL, "%s", error);
         return;
     }
 
